@@ -105,7 +105,6 @@ function isIsoscelesTriangle(a, b, c) {
   if (a === 0 || b === 0 || c === 0) {
     return false;
   }
-
   if (a === b && a + b > c) {
     return true;
   }
@@ -167,8 +166,13 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let string = '';
+
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    string += str[i];
+  }
+  return string === str;
 }
 
 /**
