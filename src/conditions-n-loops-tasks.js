@@ -131,8 +131,45 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  const numString = `${num}`;
+  const romanNumbers = {
+    1: 'I',
+    2: 'II',
+    3: 'III',
+    4: 'IV',
+    5: 'V',
+    6: 'VI',
+    7: 'VII',
+    8: 'VIII',
+    9: 'IX',
+    10: 'X',
+    20: 'XX',
+    30: 'XXX',
+  };
+
+  let result = '';
+
+  if (numString.length === 1 || numString === '10') {
+    return romanNumbers[numString];
+  }
+
+  if (numString[0] === '1') {
+    result += romanNumbers['10'];
+    result += romanNumbers[numString['1']];
+  }
+
+  if (numString[0] === '2') {
+    result += romanNumbers['20'];
+    result += romanNumbers[numString['1']];
+  }
+
+  if (numString[0] === '3') {
+    result += romanNumbers['30'];
+    result += romanNumbers[numString['1']];
+  }
+
+  return result;
 }
 
 /**
@@ -189,8 +226,17 @@ function isPalindrome(str) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  let result = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      result = i;
+      break;
+    }
+
+    result = -1;
+  }
+  return result;
 }
 
 /**
@@ -208,8 +254,15 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  const str = `${num}`;
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === `${digit}`) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
